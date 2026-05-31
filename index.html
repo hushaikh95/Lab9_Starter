@@ -30,6 +30,10 @@
       width: 240px;
     }
 
+    output.has-result {
+      height: auto;
+    }
+
     main {
       width: 800px;
     }
@@ -65,8 +69,20 @@
         <button id="calculate">Calculate</button>
         <br />
         <output></output>
+        <!-- Comment out the summary node below to simulate a removed DOM element. -->
+        <!-- <p id="calc-summary" aria-live="polite"></p> -->
       </fieldset>
     </form>
+
+    <section aria-label="Console method demos">
+      <h2>Console Demos</h2>
+      <p>Open your browser devtools console, then click the buttons below.</p>
+      <ul id="grade-list">
+        <li>CSE 110 — 92 (A-)</li>
+        <li>CSE 101 — 88 (B+)</li>
+        <li>CSE 120 — 95 (A)</li>
+      </ul>
+    </section>
 
     <section id="error-btns">
       <button>Console Log</button>
@@ -87,22 +103,7 @@
     </section>
   </main>
 
-  <script>
-    let form = document.querySelector('form');
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let output = document.querySelector('output');
-      let firstNum = document.querySelector('#first-num').value;
-      let secondNum = document.querySelector('#second-num').value;
-      let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
-    });
-
-    let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
-
-    // Start your code here
-    // You may move this JS to another file if you wish
-  </script>
+  <script src="script.js"></script>
 </body>
 
 </html>
