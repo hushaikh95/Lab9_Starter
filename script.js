@@ -36,15 +36,15 @@ const sampleGrades = [
 
 const TIMER_LABEL = 'lab9-demo-timer';
 
-window.onerror = function (message, source, lineno, colno, error) {
-  console.log('Global error caught by window.onerror:', {
-    message,
-    source,
-    lineno,
-    colno,
-    error,
+window.addEventListener('error', (event) => {
+  console.log('Global error caught by error listener:', {
+    message: event.message,
+    source: event.filename,
+    lineno: event.lineno,
+    colno: event.colno,
+    error: event.error,
   });
-};
+});
 
 function parseOperand(value, fieldName) {
   const trimmed = value.trim();
